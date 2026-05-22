@@ -3,6 +3,6 @@ package main
 import "fmt"
 
 func main() {
-	a := 10
+	a := "value"
 	fmt.Println("val is", a)
 }
