@@ -4,17 +4,17 @@ import (
 	"fmt"
 )
 
-func val() func() int {
-	count := 0
-
-	return func() int {
-		count = count + 1
-		return count
-	}
-}
-
 func main() {
-	result := val()
-	fmt.Println(result())
-	fmt.Println(result())
+	val := make(map[string]interface{})
+
+	val["one"] = 1
+	val["two"] = 2.7
+	val["three"] = true
+	val["four"] = "four"
+	val["five"] = []string{"five", "six", "seven"}
+	val["six"]=map[string]interface{}{
+		"eight": 8,
+	}
+	fmt.Println(val)
+
 }
