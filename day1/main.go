@@ -5,12 +5,19 @@ import (
 )
 
 func main() {
-	age := 15
-	if age >= 18 {
-		fmt.Println("you are adult")
-	} else if age < 10 && age >= 0 {
-		fmt.Println("you are child")
-	} else {
-		fmt.Println("you are teenager")
+	age := 1
+	switch {
+	case age >= 18:
+		{
+			fmt.Println("you are adult")
+		}
+	case age >= 13 && age < 18:
+		{
+			fmt.Println("you are teenager")
+		}
+	case age < 13:
+		{
+			fmt.Println("you are child")
+		}
 	}
 }
