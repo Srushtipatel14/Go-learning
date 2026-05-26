@@ -4,13 +4,16 @@ import (
 	"fmt"
 )
 
-func printVal(val *int) {
-	*val = 20
-	fmt.Println(*val)
+type val struct {
+	x int
+	y int
+	z string
 }
 
 func main() {
-	val := 200
-	printVal(&val)
-	fmt.Println(val)
+	p := val{x: 1, y: 2, z: "ten"}
+	q := val{x: 1, y: 2, z: "ten"}
+
+	q.x = 10
+	fmt.Println(p, q)
 }
