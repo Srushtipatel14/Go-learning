@@ -4,20 +4,16 @@ import (
 	"fmt"
 )
 
-func main() {
-	age := 1
-	switch {
-	case age >= 18:
-		{
-			fmt.Println("you are adult")
-		}
-	case age >= 13 && age < 18:
-		{
-			fmt.Println("you are teenager")
-		}
-	case age < 13:
-		{
-			fmt.Println("you are child")
-		}
+func add(num ...int) int {
+	sum := 0
+	for _, n := range num {
+		sum += n
 	}
+	return sum
+
+}
+
+func main() {
+	result := add(1, 2, 3, 4, 5, 6)
+	fmt.Println(result)
 }
