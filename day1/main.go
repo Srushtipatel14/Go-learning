@@ -5,9 +5,12 @@ import (
 )
 
 func main() {
-	var a = make([]int, 0, 4)
-
-	a = append(a, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13)
-
-	fmt.Println(len(a), cap(a))
+	age := 15
+	if age >= 18 {
+		fmt.Println("you are adult")
+	} else if age < 10 && age >= 0 {
+		fmt.Println("you are child")
+	} else {
+		fmt.Println("you are teenager")
+	}
 }
