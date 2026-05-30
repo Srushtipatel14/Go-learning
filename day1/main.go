@@ -1,20 +1,25 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
-type val struct {
-	x int
-	y int
-	z string
+type payment struct{}
+type razorpay struct{}
+type stripe struct{}
+
+func (r razorpay) makepayment(amount float64) {
+	fmt.Println("Payment made using Razorpay", amount)
+}
+
+func (s stripe) makepayment(amount float64) {
+	fmt.Println("Payment made using Stripe", amount)
+}
+
+func (p payment) makepayment(amount float64) {
+	payment := stripe{}
+	payment.makepayment(amount)
 }
 
 func main() {
-	p := val{x: 1, y: 2, z: "ten"}
-	q := val{x: 1, y: 2, z: "ten"}
-	q.x = 10
-
-	fmt.Println(p, q)
-
+	payment := payment{}
+	payment.makepayment(1000.10)
 }
