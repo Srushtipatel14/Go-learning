@@ -2,24 +2,36 @@ package main
 
 import "fmt"
 
-type payment struct{}
+type paymentmethod interface {
+	pay(amount float64)
+}
+
+type payment struct {
+	paymentmethod
+}
 type razorpay struct{}
 type stripe struct{}
+type juspay struct{}
 
-func (r razorpay) makepayment(amount float64) {
+func (r razorpay) pay(amount float64) {
 	fmt.Println("Payment made using Razorpay", amount)
 }
 
-func (s stripe) makepayment(amount float64) {
+func (s stripe) pay(amount float64) {
 	fmt.Println("Payment made using Stripe", amount)
 }
 
+func (s juspay) pay(amount float64) {
+	fmt.Println("Payment made using juspay", amount)
+}
+
 func (p payment) makepayment(amount float64) {
-	payment := stripe{}
-	payment.makepayment(amount)
+	p.pay(amount)
 }
 
 func main() {
-	payment := payment{}
-	payment.makepayment(1000.10)
+	p := payment{
+		paymentmethod: razorpay{},
+	}
+	p.makepayment(1000.10)
 }
