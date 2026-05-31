@@ -1,17 +1,18 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
-func printSlice[t int | string | bool](s []t) {
-
-	for _, v := range s {
-		fmt.Printf("%v ", v)
-	}
+func task(id int) {
+	fmt.Println("id", id)
 }
 
 func main() {
-	numbers := []int{1, 2, 3, 4, 5}
-	strings := []string{"Hello", "World", "Go", "Programming"}
-	printSlice(numbers)
-	printSlice(strings)
+	for i := 0; i < 10; i++ {
+		go task(i)
+	}
+
+	time.Sleep(time.Second * 2)
 }
