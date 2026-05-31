@@ -2,36 +2,18 @@ package main
 
 import "fmt"
 
-type paymentmethod interface {
-	pay(amount float64)
-}
+type OrderStatus string
 
-type payment struct {
-	paymentmethod
-}
-type razorpay struct{}
-type stripe struct{}
-type juspay struct{}
+const (
+	shipped   OrderStatus = "shipped"
+	delivered OrderStatus = "delivered"
+	returned  OrderStatus = "returned"
+)
 
-func (r razorpay) pay(amount float64) {
-	fmt.Println("Payment made using Razorpay", amount)
-}
-
-func (s stripe) pay(amount float64) {
-	fmt.Println("Payment made using Stripe", amount)
-}
-
-func (s juspay) pay(amount float64) {
-	fmt.Println("Payment made using juspay", amount)
-}
-
-func (p payment) makepayment(amount float64) {
-	p.pay(amount)
+func changeOrderStatus(status OrderStatus) {
+	fmt.Println("changing order status", status)
 }
 
 func main() {
-	p := payment{
-		paymentmethod: razorpay{},
-	}
-	p.makepayment(1000.10)
+	changeOrderStatus(delivered)
 }
