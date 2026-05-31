@@ -2,18 +2,16 @@ package main
 
 import "fmt"
 
-type OrderStatus string
+func printSlice[t int | string | bool](s []t) {
 
-const (
-	shipped   OrderStatus = "shipped"
-	delivered OrderStatus = "delivered"
-	returned  OrderStatus = "returned"
-)
-
-func changeOrderStatus(status OrderStatus) {
-	fmt.Println("changing order status", status)
+	for _, v := range s {
+		fmt.Printf("%v ", v)
+	}
 }
 
 func main() {
-	changeOrderStatus(delivered)
+	numbers := []int{1, 2, 3, 4, 5}
+	strings := []string{"Hello", "World", "Go", "Programming"}
+	printSlice(numbers)
+	printSlice(strings)
 }
