@@ -5,32 +5,37 @@ import "fmt"
 func main() {
 	var num int
 	fmt.Scan((&num))
-	var code int = 65
-	for i := 0; i <= num-1; i++ {
 
-		// for j := num - 1; j > i; j-- {
-		// 	fmt.Print(" ")
-		// }
+	for i := 0; i < num; i++ {
 		for j := 0; j <= i; j++ {
-			val := code + num - 1 + j - i
-			fmt.Printf("%c", val)
+			fmt.Print(num-j, " ")
 		}
-		// for j := i - 1; j >= 0; j-- {
-		// 	fmt.Printf("%c", code+j)
-		// }
+		for j := num - 1; j > i; j-- {
+			fmt.Print(num-i, " ")
+		}
+		for j := num - 1; j > i; j-- {
+			fmt.Print(num-i, " ")
+		}
+		for j := i; j >= 0; j-- {
+			fmt.Print(num-j, " ")
+		}
+		fmt.Print("\n")
+	}
+	for i := 0; i < num-1; i++ {
+
+		for j := num - 1; j > i; j-- {
+			fmt.Print(j+1, " ")
+		}
+		for j := 0; j <= i; j++ {
+			fmt.Print(i+2, " ")
+		}
+		for j := i; j >= 0; j-- {
+			fmt.Print(i+2, " ")
+		}
+		for j := num - 1; j > i; j-- {
+			fmt.Print(num-j+i+1, " ")
+		}
 		fmt.Print("\n")
 	}
 
-	// for i := num - 1; i >= 0; i-- {
-	// 	// for j := 0; j < num-i-1; j++ {
-	// 	// 	fmt.Print(" ")
-	// 	// }
-	// 	// for j := i; j >= 0; j-- {
-	// 	// 	fmt.Print("*")
-	// 	// }
-	// 	for j := i - 1; j >= 0; j-- {
-	// 		fmt.Print("*")
-	// 	}
-	// 	fmt.Print("\n")
-	// }
 }
